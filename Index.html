@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry, My Queen 👑</title>
+    <style>
+        /* Premium Global Setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: #03001e;
+            background: linear-gradient(to bottom, #05011a, #03001e, #0a0018);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        /* Advanced Ambient Glowing Orbs */
+        .ambient-light {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.4;
+            mix-blend-mode: screen;
+            animation: floatOrb 10s ease-in-out infinite alternate;
+        }
+
+        .orb-1 { width: 400px; height: 400px; background: #ff007f; top: -10%; left: -10%; }
+        .orb-2 { width: 500px; height: 500px; background: #7928ca; bottom: -15%; right: -10%; animation-delay: -3s; }
+        .orb-3 { width: 300px; height: 300px; background: #00f2fe; top: 40%; right: 20%; opacity: 0.2; animation-delay: -6s; }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, 30px) scale(1.15); }
+        }
+
+        /* Ultra-Premium Neo-Glassmorphic Card */
+        .card {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 440px;
+            padding: 45px 30px;
+            background: rgba(10, 5, 25, 0.4);
+            border-radius: 30px;
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            box-shadow: 
+                0 30px 70px rgba(0, 0, 0, 0.8),
+                inset 0 1px 1px rgba(255, 255, 255, 0.15),
+                inset 0 -1px 20px rgba(255, 255, 255, 0.02);
+            text-align: center;
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            transition: border 0.5s ease;
+        }
+
+        /* Animated Glowing Border Line */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 30px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255,0,127,0.5), rgba(121,40,202,0.1), rgba(0,242,254,0.5));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* Typography & Visuals */
+        .emoji-box {
+            font-size: 65px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.4));
+            animation: heartBeat 1.5s infinite;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 30%, #ff007f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .text-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #b3aed2;
+            margin-bottom: 35px;
+            font-weight: 400;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #00f2fe, #ff007f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        /* Premium Buttons Setup */
+        .action-area {
+            position: relative;
+            height: 55px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            outline: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        #acceptBtn {
+            position: absolute;
+            left: 0;
+            width: 48%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff007f 0%, #7928ca 100%);
+            color: #ffffff;
+            box-shadow: 0 8px 25px rgba(255, 0, 127, 0.3);
+        }
+
+        #acceptBtn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 0, 127, 0.5);
+            filter: brightness(1.1);
+        }
+
+        #declineBtn {
+            position: absolute;
+            right: 0;
+            width: 48%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            color: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(5px);
+        }
+
+        /* Success Mode State */
+        .hidden {
+            display: none !important;
+        }
+
+        .success-glow {
+            font-size: 70px;
+            color: #ff007f;
+            text-shadow: 0 0 30px rgba(255, 0, 127, 0.8);
+            margin-bottom: 20px;
+            animation: celebrate 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes celebrate {
+            0% { transform: scale(0) rotate(-20deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        /* Luxury Floating Confetti Hearts */
+        .floating-heart {
+            position: absolute;
+            pointer-events: none;
+            background: linear-gradient(135deg, #ff007f, #7928ca);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 24px;
+            z-index: 9999;
+            animation: floatUpward 3.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        @keyframes floatUpward {
+            0% { transform: translateY(105vh) translateX(0) scale(0.5) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-15vh) translateX(100px) scale(1.2) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Layer -->
+    <div class="ambient-light">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Main Interactive Card -->
+    <div class="card" id="cardRequest">
+        <div class="emoji-box">🥺</div>
+        <h1>I'm So Sorry...</h1>
+        <p class="text-content">
+            আমি জানি আমার ওপর তোমার অনেক অভিমান জমে আছে। ভুলটা সম্পূর্ণ আমার ছিল, প্লিজ আর মুখভার করে থেকো না। তোমার ওই মিষ্টি হাসিটা না দেখলে আমার কোনো কিছুতেই মন বসে না। <br><br>
+            <span class="highlight">অভিমান কমিয়ে এবার একটু মাফ করে দাও না? ❤️</span>
+        </p>
+
+        <div class="action-area">
+            <button class="btn" id="acceptBtn" onclick="grantForgiveness()">হ্যাঁ, করলাম</button>
+            <button class="btn" id="declineBtn" onmouseenter="escapeButton()" onclick="escapeButton()">উঁহু, করব না</button>
+        </div>
+    </div>
+
+    <!-- Success Luxury Card -->
+    <div class="card hidden" id="cardSuccess">
+        <div class="success-glow">❤️</div>
+        <h1>Thank You, My Queen!</h1>
+        <p class="text-content">
+            আই লাভ ইউ সো মাচ! আমি জানতাম আমার জান পাখিটা আমাকে বেশিক্ষণ রাগ করে থাকতে পারবে না। <br><br>
+            এবার জলদি একটা মিষ্টি পিক দাও আর তোমার ওই কিউট মিষ্টি হাসিটা নিয়ে আমাকে একটা টেক্সট দাও! 🥰✨
+        </p>
+    </div>
+
+    <script>
+        // Smoothly running away logic for advanced UI
+        function escapeButton() {
+            const btn = document.getElementById('declineBtn');
+            const card = document.getElementById('cardRequest');
+            
+            const cardRect = card.getBoundingClientRect();
+            const btnRect = btn.getBoundingClientRect();
+            
+            // Generate coordinates keeping inside padding bounds
+            const buffer = 20;
+            const maxX = cardRect.width - btnRect.width - buffer;
+            const maxY = cardRect.height - btnRect.height - buffer;
+            
+            // Perfect Random Distribution
+            const targetX = Math.random() * (maxX - buffer) + buffer;
+            const targetY = Math.random() * (maxY - 100) + buffer; // Keeps it safe from overlapping heading text
+
+            btn.style.transition = 'all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            btn.style.left = targetX + 'px';
+            btn.style.top = targetY + 'px';
+        }
+
+        // Target Action Screen Trigger
+        function grantForgiveness() {
+            document.getElementById('cardRequest').classList.add('hidden');
+            document.getElementById('cardSuccess').classList.remove('hidden');
+            
+            // Cinematic Heart Rain burst
+            for(let i = 0; i < 40; i++) {
+                setTimeout(spawnPremiumHeart, i * 60);
+            }
+        }
+
+        // Generator for high-performance falling particles
+        function spawnPremiumHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            
+            // Randomize icons for realistic effect
+            const types = ['❤️', '✨', '💖', '🥰'];
+            heart.innerHTML = types[Math.floor(Math.random() * types.length)];
+            
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 1.5 + 2.5) + 's';
+            
+            // Slight horizontal drift math
+            const drift = (Math.random() * 200 - 100) + 'px';
+            heart.style.setProperty('--drift', drift);
+
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        // Prevent tap delays on high-end smartphone displays
+        document.getElementById('declineBtn').addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            escapeButton();
+        });
+    </script>
+</body>
+              </html>
+              
